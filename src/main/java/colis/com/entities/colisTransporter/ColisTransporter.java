@@ -26,11 +26,12 @@ public class ColisTransporter implements Serializable{
 	@JsonIgnore
     @EmbeddedId
     private ColisTransporterId id = new ColisTransporterId();
-	private Colis colis;
-	private Personnes personnes;
+	//private Colis colis;
+	//private Personnes personnes;
 	private Date dateTransport;
+	private Boolean etatColisTransporter;
 
-	public Colis getColis() {
+	/*public Colis getColis() {
 		return colis;
 	}
 
@@ -44,7 +45,7 @@ public class ColisTransporter implements Serializable{
 
 	public void setPersonnes(Personnes personnes) {
 		this.personnes = personnes;
-	}
+	}*/
 
 	public Date getDateTransport() {
 		return dateTransport;
@@ -52,6 +53,14 @@ public class ColisTransporter implements Serializable{
 
 	public void setDateTransport(Date dateTransport) {
 		this.dateTransport = dateTransport;
+	}
+
+	public Boolean getEtatColisTransporter() {
+		return etatColisTransporter;
+	}
+
+	public void setEtatColisTransporter(Boolean etatColisTransporter) {
+		this.etatColisTransporter = etatColisTransporter;
 	}
 	
 	

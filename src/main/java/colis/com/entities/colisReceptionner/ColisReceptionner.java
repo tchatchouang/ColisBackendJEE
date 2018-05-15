@@ -14,7 +14,6 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import colis.com.entities.colis.Colis;
 import colis.com.entities.personnes.Personnes;
 
-
 @Entity
 @AssociationOverrides({
     @AssociationOverride(name = "id.personnes", joinColumns = @JoinColumn(name = "idPersonne")),
@@ -30,6 +29,7 @@ public class ColisReceptionner implements Serializable{
 	private Colis colis;
 	private Personnes personnes;
 	private Date dateReception;
+	private Boolean etatColisReceptionner;
 
 	public Colis getColis() {
 		return colis;
@@ -53,5 +53,13 @@ public class ColisReceptionner implements Serializable{
 
 	public void setDateReception(Date dateReception) {
 		this.dateReception = dateReception;
+	}
+
+	public Boolean getEtatColisReceptionner() {
+		return etatColisReceptionner;
+	}
+
+	public void setEtatColisReceptionner(Boolean etatColisReceptionner) {
+		this.etatColisReceptionner = etatColisReceptionner;
 	}
 }

@@ -22,6 +22,8 @@ import org.springframework.web.bind.annotation.RestController;
 
 import colis.com.dao.TrajetDao;
 import colis.com.dao.personnesDao;
+import colis.com.entities.colisTransporter.ColisTransporter;
+import colis.com.entities.colisTransporter.ColisTransporterContext;
 import colis.com.entities.personnes.Personnes;
 import colis.com.entities.proposerTrajet.ProposerTrajet;
 import colis.com.entities.proposerTrajet.ProposerTrajetContext;
@@ -167,6 +169,27 @@ public class PersonneRestServives {
 	@RequestMapping(value="/infoperstra", method=RequestMethod.GET)// elle nous permet d'avoir le resultat de cette requet par http
 	public Personnes listPersonneTrajetProser(@RequestParam(name="idTrajet", defaultValue="")String idTrajet){
 		return personnesdao.listPersonneTrajetProser(Long.parseLong(idTrajet));
+	}
+	
+	/***************************************  COLIS  TRANSPORTER******************************/
+	@RequestMapping(value="/personnes/saveColisTransporter", method=RequestMethod.POST)// elle nous permet d'avoir le resultat de cette requet par http
+	public void saveColisTransporter(@RequestBody ColisTransporterContext colisTransporterContext){
+		
+		/*System.out.println("idpersonne : "+colisTransporterContext.getPersonnes().getIdPersonne());  
+		System.out.println("idcolis : "+colisTransporterContext.getColis().getIdColis());  
+		
+		Personnes personnes =  personnesdao.findOne(personnesContext.getPersonnes().getIdPersonne());
+		Set<ProposerTrajet> trajetProposerSet = new HashSet<ProposerTrajet>();
+		ProposerTrajet trajetProposer = new ProposerTrajet();
+		trajetProposer.setPersonnes(personnes);
+		trajetProposer.setTrajet(personnesContext.getTrajet());
+		trajetProposer.setDatePropositionTrajet(new Date());
+		trajetProposer.setNombreVisite(0);
+		trajetProposer.setPoidColis(personnesContext.getPoidColis());
+		personnesContext.getTrajet().getProposerTrajet().add(trajetProposer);
+		trajetProposerSet.add(trajetProposer);
+		personnes.addProposerTrajet(trajetProposer);
+		personnesdao.save(personnes);*/
 	}
 
 }
